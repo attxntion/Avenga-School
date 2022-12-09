@@ -1,0 +1,18 @@
+<aura:component implements="flexipage:availableForRecordHome"
+                access="global"
+                controller="mostProfitableClientsServices">
+    <aura:attribute name="clientList" type="Client__c[]"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="selectedRowsCount" type="Integer" default="0"/>
+    <aura:attribute name="maxRowSelection" type="Integer" default="10"/>
+
+    <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+
+    <div>
+        <h1>Most Profitable Clients</h1>
+        <lightning:datatable
+            data="{! v.clientList }"
+            columns="{! v.columns }"
+            keyField="id"/>
+    </div>
+</aura:component>	
