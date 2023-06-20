@@ -1,0 +1,37 @@
+<template>
+    <lightning-card title="Latest Projects" icon-name="standard:apex">
+      <template if:true={projects}>
+        <ul class="slds-m-around_medium">
+          <template for:each={projects} for:item="project">
+            <li key={project.Id} class="slds-m-bottom_medium">
+              <div class="slds-grid slds-wrap slds-grid_vertical-align-center slds-border_bottom slds-border_top">
+                <div class="slds-col slds-size_1-of-2">
+                  <p class="slds-text-heading_small"><strong>{project.Name}</strong></p>
+                </div>
+                <div class="slds-col slds-size_1-of-2">
+                  <div class="slds-grid slds-wrap">
+                    <div class="slds-col slds-size_1-of-2">
+                      <p><strong>Status:</strong></p>
+                      <p class="slds-text-color_success">{project.Status__c}</p>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                      <p><strong>Start Date:</strong></p>
+                      <p>{project.Start_Date__c}</p>
+                    </div>
+                    <div class="slds-col slds-size_1-of-2">
+                      <p><strong>Project Budget:</strong></p>
+                      <p>{project.Project_Budget__c}$</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </template>
+        </ul>
+      </template>
+      <template if:false={projects}>
+        <div class="slds-p-around_medium slds-text-align_center slds-text-color_error">No projects found.</div>
+      </template>
+    </lightning-card>
+  </template>
+  
